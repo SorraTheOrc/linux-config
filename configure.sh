@@ -6,7 +6,7 @@ DOCKER_COMPOSE_VERSION=1.5.0rc3
 
 # Network Time Protocol
 
-sudo ntpdate -b pool.ntp.org npm install hubot-twitter-mention --save 
+sudo ntpdate -b pool.ntp.org  
 
 # Preparation
 
