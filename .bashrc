@@ -113,5 +113,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export EDITOR=vi
+export EDITOR=emacs
 
