@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/rgardler/projects/AzureDevTestDeploy/demo/demo3_docker_compose'
-let g:netrw_dirhist_2='/home/rgardler/projects/AzureDevTestDeploy/demo/demo2_development_with_containers'
-let g:netrw_dirhist_3='/home/rgardler/projects/rgardler.github.io/_includes/themes/twitter'
