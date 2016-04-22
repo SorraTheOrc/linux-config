@@ -39,6 +39,12 @@ git config --global user.email "ross@gardler.org"
 git config credential.helper "store" 
 git config --global push.default simple
 
+# Emacs
+mkdir -p~/.emacs.d/lisp
+cp -R .emacs.d ~/.emacs.d
+cd ~/.emacs.d/lisp
+wget https://raw.githubusercontent.com/jrblevin/markdown-mode/master/markdown-mode.el
+
 # Cleanup
 
 cp -Rf $SCRIPT_DIR ~
