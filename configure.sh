@@ -6,7 +6,7 @@ DOCKER_COMPOSE_VERSION=1.5.0rc3
 
 # Network Time Protocol
 
-sudo ntpdate -b pool.ntp.org npm install hubot-twitter-mention --save 
+sudo ntpdate -b pool.ntp.org  
 
 # Preparation
 
@@ -27,6 +27,8 @@ sudo apt-get install -y subversion
 sudo gem install tmuxinator
 
 # Docker
+
+sudo curl -sSL https://get.docker.com/ | sh
 
 curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` > docker-compose
 sudo mv docker-compose /usr/local/bin/docker-compose
