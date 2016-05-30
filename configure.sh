@@ -34,6 +34,8 @@ curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERS
 sudo mv docker-compose /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
+sudo usermod -aG docker ${USER}
+
 # git 
 
 git config --global user.name "Ross Gardler"
