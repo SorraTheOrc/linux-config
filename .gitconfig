@@ -1,7 +1,0 @@
-[user]
-	name = Ross Gardler
-	email = ross@gardler.org
-[push]
-	default = simple
-[credential]
-	helper = store

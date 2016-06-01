@@ -12,6 +12,7 @@ sudo ntpdate -b pool.ntp.org
 
 SCRIPT_DIR=$(cd "${0%/*}" 2>/dev/null; echo "$PWD"/"${0##*/}")
 sudo apt-get update
+sudo apt-get upgrade -y
 
 # Programming
 
@@ -19,7 +20,6 @@ sudo apt-get install -y ruby
 sudo apt-get install -y python-pip
 sudo apt-get install -y lynx
 sudo apt-get install -y vi
-sudo apt-get install -y emacs24-nox
 sudo apt-get install -y subversion
 
 # Tmuxinator
@@ -45,13 +45,21 @@ git config --global user.email "ross@gardler.org"
 git config credential.helper "store" 
 git config --global push.default simple
 
+# Bash config
+
+cp .bashrc ~
+source ~/.bashrc
+
+cp .profile ~
+source ~/.profile
+
 # Emacs
-mkdir -p~/.emacs.d/lisp
-cp -R .emacs.d ~/.emacs.d
-cd ~/.emacs.d/lisp
-wget https://raw.githubusercontent.com/jrblevin/markdown-mode/master/markdown-mode.el
+sudo apt-get install -y emacs24-nox
+wget https://raw.githubusercontent.com/jwiegley/use-package/master/use-package.el -O ~/.emacs.d/lisp/use-package.el
+wget https://raw.githubusercontent.com/jwiegley/use-package/master/bind-key.el -O ~/.emacs.d/lisp/bind-key.el
+cp -R .emacs.d/* ~/.emacs.d
 
-# Cleanup
 
-cp -Rf $SCRIPT_DIR ~
+
+
 
