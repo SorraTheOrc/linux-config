@@ -2,7 +2,7 @@
 
 # Versions
 
-DOCKER_COMPOSE_VERSION=1.5.0rc3
+DOCKER_COMPOSE_VERSION=1.7.1
 
 # Network Time Protocol
 
