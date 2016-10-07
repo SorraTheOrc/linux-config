@@ -40,6 +40,9 @@ sudo usermod -aG docker ${USER}
 
 # git 
 
+cp .gitinore ~/.gitignore
+git config --global core.excludesfile '~/.gitignore'
+
 git config --global user.name "Ross Gardler"
 git config --global user.email "ross@gardler.org"
 git config credential.helper "store" 
