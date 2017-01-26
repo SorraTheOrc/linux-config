@@ -13,6 +13,13 @@ sudo ntpdate -b pool.ntp.org
 SCRIPT_DIR=$(cd "${0%/*}" 2>/dev/null; echo "$PWD"/"${0##*/}")
 sudo apt-get update
 sudo apt-get upgrade -y
+mkdir -p ~/projects
+mkdir -p ~/.emacs.d/lisp
+
+# Azure CLI
+
+sudo apt-get install -y libssl-dev libffi-dev python-dev build-essential
+curl -L https://aka.ms/InstallAzureCli | bash
 
 # Programming
 
@@ -25,18 +32,24 @@ sudo apt-get install -y subversion
 # Tmuxinator
 
 sudo gem install tmuxinator
-
 cp .tmux.conf ~
 
 # Docker
 
-sudo curl -sSL https://get.docker.com/ | sh
+sudo apt-get install apt-transport-https \
+     ca-certificates
+curl -fsSL https://yum.dockerproject.org/gpg | sudo apt-key add -
+sudo add-apt-repository \
+            "deb https://apt.dockerproject.org/repo/ \
+       ubuntu-$(lsb_release -cs) \
+       main"
 
-curl -L https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-`uname -s`-`uname -m` > docker-compose
-sudo mv docker-compose /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+sudo apt-get update
+sudo apt-get -y install docker-engine
+sudo systemctl enable docker
 
-sudo usermod -aG docker ${USER}
+sudo group add docker 
+sudo usermod -aG docker $USER
 
 # git 
 
