@@ -1,8 +1,6 @@
 # Configure a Linux Machine
 
-# Versions
-
-DOCKER_COMPOSE_VERSION=1.7.1
+EMAIL=ross@gardler.org
 
 # Network Time Protocol
 
@@ -15,6 +13,13 @@ sudo apt-get update
 sudo apt-get upgrade -y
 mkdir -p ~/projects
 mkdir -p ~/.emacs.d/lisp
+
+# SSH
+if [ ! -f "~/.ssh/id_rsa.pub"]; then
+    ssh-keygen -t rsa -b 4096 -C "$EMAIL" -F "~/.ssh/id_rsa" -N ""
+    eval $(ssh-agent -s)
+    ssh-add ~/.ssh/id_rsa
+fi
 
 # Azure CLI
 
