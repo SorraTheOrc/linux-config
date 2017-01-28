@@ -12,7 +12,6 @@ SCRIPT_DIR=$(cd "${0%/*}" 2>/dev/null; echo "$PWD"/"${0##*/}")
 sudo apt-get update
 sudo apt-get upgrade -y
 mkdir -p ~/projects
-mkdir -p ~/.emacs.d/lisp
 
 # SSH
 if [ ! -f "~/.ssh/id_rsa.pub"]; then
@@ -76,6 +75,7 @@ source ~/.profile
 
 # Emacs
 sudo apt-get install -y emacs24-nox
+mkdir -p ~/.emacs.d/lisp
 wget https://raw.githubusercontent.com/jwiegley/use-package/master/use-package.el -O ~/.emacs.d/lisp/use-package.el
 wget https://raw.githubusercontent.com/jwiegley/use-package/master/bind-key.el -O ~/.emacs.d/lisp/bind-key.el
 cp -R .emacs.d/* ~/.emacs.d
