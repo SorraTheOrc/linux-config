@@ -22,8 +22,12 @@ fi
 
 # Azure CLI
 
-sudo apt-get install -y libssl-dev libffi-dev python-dev build-essential
-curl -L https://aka.ms/InstallAzureCli | bash
+if hash az 2>/dev/null; then
+    az component update
+else
+    sudo apt-get install -y libssl-dev libffi-dev python-dev build-essential
+    curl -L https://aka.ms/InstallAzureCli | bash
+fi
 
 # Programming
 
@@ -32,6 +36,12 @@ sudo apt-get install -y python-pip
 sudo apt-get install -y lynx
 sudo apt-get install -y vi
 sudo apt-get install -y subversion
+
+## Scala
+echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
+sudo apt-get update
+sudo apt-get -y install sbt
 
 # Tmuxinator
 
