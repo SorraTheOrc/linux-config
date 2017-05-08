@@ -29,12 +29,10 @@
 
  (bash-completion flycheck go-autocomplete go-direx direx
   go-eldoc go-mode go-snippets highlight-indentation
-  python-environment smartparens zenburn-theme
+  python-environment smartparens 
   auto-complete yasnippet zoom-window minimap
   dockerfile-mode)
 )
-
-(load-theme 'zenburn-theme t)
 
 (require 'zoom-window)
 (global-set-key (kbd "C-x C-z") 'zoom-window-zoom)
