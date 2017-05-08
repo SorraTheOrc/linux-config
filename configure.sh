@@ -37,6 +37,12 @@ sudo apt-get install -y lynx
 sudo apt-get install -y vi
 sudo apt-get install -y subversion
 
+## Go
+
+curl https://storage.googleapis.com/golang/go1.8.1.linux-amd64.tar.gz > golang.tar.gz
+tar -C /usr/local -xvf golang.tar.gz
+rm golang.tar.gz
+
 ## Java
 sudo apt-get install default-jdk
 

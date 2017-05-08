@@ -20,3 +20,7 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+# Add Go to the path and set go path
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=~/projects/go
