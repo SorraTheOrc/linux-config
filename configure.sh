@@ -68,6 +68,11 @@ sudo systemctl enable docker
 sudo group add docker 
 sudo usermod -aG docker $USER
 
+# Kubernetes
+
+az acs kubernetes install-cli
+curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
+
 # git 
 
 cp .gitinore ~/.gitignore
