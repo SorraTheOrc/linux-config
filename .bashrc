@@ -108,7 +108,7 @@ function nonzero_return() {
     [ $RETVAL -ne 0 ] && echo "$RETVAL"
 }
 
-export PS1="\[\e[33m\]\w\[\e[m\] \[\e[35m\]\`nonzero_return\`\[\e[m\] \[\e[32m\]\`parse_git_branch\`\[\e[m\]\n\\$ "
+export PS1="\[\033[1;34m\]!\! \[\e[33m\]\w\[\e[m\] \[\e[35m\]\`nonzero_return\`\[\e[m\] \[\e[32m\]\`parse_git_branch\`\[\e[m\]\n\\$ "
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
