@@ -17,6 +17,9 @@
 		    ("\\.markdown\\'" . markdown-mode))
 	       :init (setq markdown-command "multimarkdown"))
 
+(use-package ensime
+  :ensure t)
+
 (mapc
  (lambda (package)
    (or (package-installed-p package)
