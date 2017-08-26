@@ -2,6 +2,14 @@
 
 EMAIL=ross@gardler.org
 
+# Bash config
+
+cp .bashrc ~
+source ~/.bashrc
+
+cp .profile ~
+source ~/.profile
+
 # Network Time Protocol
 
 sudo ntpdate -b pool.ntp.org  
@@ -43,6 +51,26 @@ curl https://storage.googleapis.com/golang/go1.8.1.linux-amd64.tar.gz > golang.t
 tar -C /usr/local -xvf golang.tar.gz
 rm golang.tar.gz
 
+## git 
+
+cp .gitinore ~/.gitignore
+git config --global core.excludesfile '~/.gitignore'
+
+git config --global user.name "Ross Gardler"
+git config --global user.email "ross@gardler.org"
+git config credential.helper "store" 
+git config --global push.default simple
+
+### Hub CLI - https://github.com/github/hub
+
+HUB_CLI_VERSION=hub-linux-amd64-2.3.0-pre10
+curl -L https://github.com/github/hub/releases/download/v2.3.0-pre10/$HUB_CLI_VERSION.tgz > $HUB_CLI_VERSION.tgz
+tar -C /usr/local/bin -xvf $HUB_CLI_VERSION.tgz
+/usr/local/bin/$HUB_CLI_VERSION/install
+rm $HUB_CLI_VERSION.tgz
+echo 'eval "$(hub alias -s)"' >> ~/.profile
+/usr/local/bin/$HUB_CLI_VERSION/etc/hub.bash_completion.sh
+
 ## Java
 sudo apt-get install default-jdk
 
@@ -79,24 +107,6 @@ sudo usermod -aG docker $USER
 az acs kubernetes install-cli
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
 
-# git 
-
-cp .gitinore ~/.gitignore
-git config --global core.excludesfile '~/.gitignore'
-
-git config --global user.name "Ross Gardler"
-git config --global user.email "ross@gardler.org"
-git config credential.helper "store" 
-git config --global push.default simple
-
-# Bash config
-
-cp .bashrc ~
-source ~/.bashrc
-
-cp .profile ~
-source ~/.profile
-
 # Emacs
 sudo apt-get install -y emacs24-nox
 mkdir -p ~/.emacs.d/lisp
@@ -104,7 +114,10 @@ wget https://raw.githubusercontent.com/jwiegley/use-package/master/use-package.e
 wget https://raw.githubusercontent.com/jwiegley/use-package/master/bind-key.el -O ~/.emacs.d/lisp/bind-key.el
 cp -R .emacs.d/* ~/.emacs.d
 
+# Load bashrc and profile
 
+source ~/.bashrc
+source ~/.profile
 
 
 
