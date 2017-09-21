@@ -153,3 +153,4 @@ fi
 
 export EDITOR=emacs
 
+export PATH=$PATH:~/bin
