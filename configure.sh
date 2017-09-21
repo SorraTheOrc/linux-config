@@ -26,6 +26,7 @@ if hash az 2>/dev/null; then
     az component update
 else
     sudo apt-get install -y libssl-dev libffi-dev python-dev build-essential
+    sudo apt-get install python3-pip
     curl -L https://aka.ms/InstallAzureCli | bash
 fi
 
@@ -52,7 +53,7 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89
 sudo apt-get update
 sudo apt-get -y install sbt
 
-# Tmuxinator
+# Tmux
 
 sudo gem install tmuxinator
 cp .tmux.conf ~
@@ -80,6 +81,7 @@ az acs kubernetes install-cli
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
 
 # git 
+sudo apt-get -y install git
 
 cp .gitinore ~/.gitignore
 git config --global core.excludesfile '~/.gitignore'
@@ -96,6 +98,8 @@ source ~/.bashrc
 
 cp .profile ~
 source ~/.profile
+
+mkdir -p ~/bin
 
 # Emacs
 sudo apt-get install -y emacs24-nox
