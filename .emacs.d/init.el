@@ -84,4 +84,9 @@
 (require 'go-direx)
 (global-set-key (kbd "C-x C-j") 'go-direx-pop-to-buffer)
 
+(progn
+  ;; make indentation commands use space only (never tab character)
+  (setq-default indent-tabs-mode nil)
+)
+
 (provide 'init)
