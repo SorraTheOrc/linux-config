@@ -103,8 +103,8 @@ sudo apt-get update
 sudo apt-get -y install docker-engine
 sudo systemctl enable docker
 
-sudo group add docker 
-sudo usermod -aG docker $USER
+sudo groupadd docker
+sudo gpasswd -a $USER docker
 
 # Kubernetes
 
