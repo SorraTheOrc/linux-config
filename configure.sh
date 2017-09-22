@@ -86,6 +86,7 @@ sudo apt-get -y install sbt
 
 # Tmux
 
+sudo apt-get -y install tmux
 sudo gem install tmuxinator
 cp .tmux.conf ~
 
