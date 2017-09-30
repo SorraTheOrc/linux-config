@@ -49,6 +49,12 @@ sudo apt-get install -y lynx
 sudo apt-get install -y vi
 sudo apt-get install -y subversion
 
+## Node
+
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo apt-get install -y build-essential
+
 ## Go
 
 curl https://storage.googleapis.com/golang/go1.8.1.linux-amd64.tar.gz > golang.tar.gz
