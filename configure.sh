@@ -34,9 +34,12 @@ if hash az 2>/dev/null; then
     az component update
 else
     sudo apt-get install -y libssl-dev libffi-dev python-dev build-essential
-    sudo apt-get install python3-pip
+    sudo apt-get install -y python3-pip
     curl -L https://aka.ms/InstallAzureCli | bash
 fi
+
+# Terminal Utils
+sudo apt-get install -y xclip
 
 # Programming
 
@@ -45,6 +48,12 @@ sudo apt-get install -y python-pip
 sudo apt-get install -y lynx
 sudo apt-get install -y vi
 sudo apt-get install -y subversion
+
+## Node
+
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo apt-get install -y build-essential
 
 ## Go
 
@@ -66,14 +75,14 @@ git config --global push.default simple
 
 HUB_CLI_VERSION=hub-linux-amd64-2.3.0-pre10
 curl -L https://github.com/github/hub/releases/download/v2.3.0-pre10/$HUB_CLI_VERSION.tgz > $HUB_CLI_VERSION.tgz
-tar -C /usr/local/bin -xvf $HUB_CLI_VERSION.tgz
-/usr/local/bin/$HUB_CLI_VERSION/install
+sudo tar -C /usr/local/bin -xvf $HUB_CLI_VERSION.tgz
+sudo /usr/local/bin/$HUB_CLI_VERSION/install
 rm $HUB_CLI_VERSION.tgz
 echo 'eval "$(hub alias -s)"' >> ~/.profile
-/usr/local/bin/$HUB_CLI_VERSION/etc/hub.bash_completion.sh
+sudo /usr/local/bin/$HUB_CLI_VERSION/etc/hub.bash_completion.sh
 
 ## Java
-sudo apt-get install default-jdk
+sudo apt-get install -y default-jdk
 
 ## Scala
 echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
@@ -83,12 +92,13 @@ sudo apt-get -y install sbt
 
 # Tmux
 
+sudo apt-get -y install tmux
 sudo gem install tmuxinator
 cp .tmux.conf ~
 
 # Docker
 
-sudo apt-get install apt-transport-https \
+sudo apt-get -y install apt-transport-https \
      ca-certificates
 curl -fsSL https://yum.dockerproject.org/gpg | sudo apt-key add -
 sudo add-apt-repository \
@@ -100,8 +110,8 @@ sudo apt-get update
 sudo apt-get -y install docker-engine
 sudo systemctl enable docker
 
-sudo group add docker 
-sudo usermod -aG docker $USER
+sudo groupadd docker
+sudo gpasswd -a $USER docker
 
 ## Docker-Compose
 
@@ -110,8 +120,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # Kubernetes
 
-az acs kubernetes install-cli
-curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
+sudo az acs kubernetes install-cli
+curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | sudo bash
 
 # git 
 sudo apt-get -y install git
